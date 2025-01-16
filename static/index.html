@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garbage Classification</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h2>Garbage Classification - NASNet</h2>
+    <div id="container">
+        <form id="uploadForm">
+            <label for="inputImage">Upload an image: </label>
+            <input type="file" id="inputImage" accept="image/*" required><br>
+            <button type="submit">Predict</button>
+        </form>
+        <h3>Predicted Class: </h3>
+        <p id="prediction"></p>
+        <div id="img-container">
+            <img id="uploadedImage" style="display: none; width: 200px; height: auto; " alt="Uploaded Image"> <!-- hide image initially -->
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
