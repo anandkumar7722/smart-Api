@@ -14,9 +14,11 @@ Use the live web version here : [Garbage Classifier - Web App](https://garbage-c
 2. Install the required dependencies using :
 `pip install -r requirements.txt`
 
-3. Open the `main.py` file in your code editor, run `uvicorn main:app --reload` in the terminal, which starts the FastAPI local development server on `http://127.0.0.1:8000/`
+3. Open the `main.py` file in your code editor, run `uvicorn main:app --reload` in the terminal, which starts the FastAPI local development server on `127.0.0.1:8000`
 
-4. Run the `index.html` in your browser! Done :)
+4. Run the local dev server `localhost:8000` or `localhost:8000/static/index.html`. Done :)
+
+And right there is your web interface!
 
 Now you can upload your images and get the predictions! Colab file is also given which is used for training the model. 
 
