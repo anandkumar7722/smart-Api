@@ -3,6 +3,7 @@ from tensorflow.keras.models import load_model
 from PIL import Image
 from tensorflow.keras.preprocessing.image import img_to_array
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 import numpy as np
 import uvicorn
 from fastapi.responses import JSONResponse # For converting returned 'dict' into 'JSON' for better info exchange over HTTP
@@ -29,6 +30,8 @@ def preprocess_image(image_file, target_size=(224,224)):
     return image
 
 class_labels = ['Cardboard', 'Glass', 'Metal', 'Paper', 'Plastic', 'Trash']
+
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
 
 @app.post('/predict')
 async def predict_image(file: UploadFile = File(...)):
