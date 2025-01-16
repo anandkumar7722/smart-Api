@@ -2,6 +2,8 @@
 
 Garbage Classifier using Transfer Learning: ML-powered REST API for classifying waste. Built with FastAPI, TensorFlow, and Transfer Learning on NASNet.
 
+Use the live web version here : [Garbage Classifier - Web App](https://garbage-classifier-fastapi.onrender.com/static/index.html)
+
 ## Setup Instructions :
 
 1. Clone the repository to your local machine (or) download as a _.zip_ file and extract it :
