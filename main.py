@@ -18,7 +18,6 @@ app.add_middleware(
     allow_headers=["*"],  
 )
 
-
 model = load_model('./models/garbage_classification_tf_nasnet.h5') # Trained on TrashNet dataset using Transfer Learning on NasNet Mobile Model
 
 def preprocess_image(image_file, target_size=(224,224)):
@@ -31,7 +30,7 @@ def preprocess_image(image_file, target_size=(224,224)):
 
 class_labels = ['Cardboard', 'Glass', 'Metal', 'Paper', 'Plastic', 'Trash']
 
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
+app.mount("/static", StaticFiles(directory="static"), name="static") # Serves the HTML file on `localhost:8000` & `localhost:8000/static/index.html`
 
 @app.post('/predict')
 async def predict_image(file: UploadFile = File(...)):
