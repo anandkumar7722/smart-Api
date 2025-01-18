@@ -13,7 +13,8 @@ document.getElementById('uploadForm').addEventListener("submit", async (event) =
     formData.append("file", file)
 
     try{
-        const response = await fetch("http://127.0.0.1:8000/predict/", {
+            const API_URL = process.env.API_URL || "http://127.0.0.1:8000";
+            const response = await fetch(`${API_URL}/predict/`, {
             method: "POST",
             body: formData
         });
