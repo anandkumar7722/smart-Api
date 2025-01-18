@@ -13,8 +13,7 @@ document.getElementById('uploadForm').addEventListener("submit", async (event) =
     formData.append("file", file)
 
     try{
-            const API_URL = process.env.API_URL || "http://127.0.0.1:8000";
-            const response = await fetch(`${API_URL}/predict/`, {
+            const response = await fetch('https://garbage-classifier-fastapi.onrender.com/predict', {  /* Change the URL to 127.0.0.1/8000 for local dev server */
             method: "POST",
             body: formData
         });
