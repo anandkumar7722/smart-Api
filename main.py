@@ -7,6 +7,7 @@ from fastapi.staticfiles import StaticFiles
 import numpy as np
 import uvicorn
 from fastapi.responses import JSONResponse # For converting returned 'dict' into 'JSON' for better info exchange over HTTP
+from fastapi.responses import HTMLResponse
 
 app = FastAPI()
 
@@ -31,6 +32,11 @@ def preprocess_image(image_file, target_size=(224,224)):
 class_labels = ['Cardboard', 'Glass', 'Metal', 'Paper', 'Plastic', 'Trash']
 
 app.mount("/static", StaticFiles(directory="static"), name="static") # Serves the HTML file on `localhost:8000` & `localhost:8000/static/index.html`
+
+@app.get("/", response_class=HTMLResponse)
+async def read_index():
+    with open("static/index.html") as f:
+        return HTMLResponse(content=f.read())
 
 @app.post('/predict')
 async def predict_image(file: UploadFile = File(...)):
