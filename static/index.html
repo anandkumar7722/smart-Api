@@ -3,23 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garbage Classification</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <title>EcoSnap - Smarter Waste Classification</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <h2>Garbage Classification - NASNet</h2>
-    <div id="container">
-        <form id="uploadForm">
-            <label for="inputImage">Upload an image: </label>
-            <input type="file" id="inputImage" accept="image/*" required><br>
-            <button type="submit">Predict</button>
-        </form>
-        <h3>Predicted Class: </h3>
-        <p id="prediction"></p>
-        <div id="img-container">
-            <img id="uploadedImage" style="display: none; width: 200px; height: auto; " alt="Uploaded Image"> <!-- hide image initially -->
-        </div>
-    </div>
-    <script src="/static/script.js"></script>
+    <header>
+        <h1>EcoSnap</h1>
+        <p>Your intelligent assistant for waste classification</p>
+    </header>
+
+    <main id="container">
+        <section id="upload-section">
+            <h2>Upload an Image to Classify</h2>
+            <div class="upload-area">
+                <label for="inputImage" class="upload-button">
+                    <i class="fas fa-camera"></i> Choose Image
+                    <input type="file" id="inputImage" accept="image/*" hidden required>
+                </label>
+                <span id="file-name">No file chosen</span>
+                <button type="submit" id="predictButton" class="predict-button" disabled>Classify Waste</button>
+            </div>
+        </section>
+
+        <section id="result-section" style="display: none;">
+            <h2>Classification Result</h2>
+            <div id="loading-indicator" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing image...</p>
+            </div>
+            <div id="prediction-display">
+                <div id="img-preview-container">
+                    <img id="uploadedImage" alt="Uploaded Image">
+                </div>
+                <p class="prediction-label">Predicted Class:</p>
+                <p id="prediction" class="prediction-text"></p>
+                <p id="confidence" class="confidence-text"></p> </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 EcoSnap. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
